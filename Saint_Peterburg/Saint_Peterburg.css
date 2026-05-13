@@ -1,0 +1,232 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+html {
+    background-color: var(--bg-color);
+    transition: background-color 0.5s ease;
+}
+
+body {
+    background-color: transparent; /* Прозрачный, чтобы видно фон html */
+    transition: background-color 0.5s ease;
+}
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 17%; /* Отступ от левой колонки */
+    right: 17%; /* Отступ от правой колонки */
+    height: 80px;
+    background-color: rgba(0, 0, 0, 0.85); /* Тёмный фон, чтобы текст читался */
+    border-bottom: 3px solid #f0e68c; /* Золотая полоска снизу */
+    backdrop-filter: blur(5px); /* Эффект размытия фона */
+    z-index: 10; /* Поверх всего */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name-site h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #f0e68c;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    border: none; /* Убираем нижнюю линию, которая была у заголовков */
+}
+
+/* Исправляем отступ текста, чтобы он не начинался сразу под шапкой */
+.text {
+    margin-top: 120px; /* Был 120px, теперь можно увеличить до 150px, чтобы текст не слипался с шапкой */
+}
+
+/* --- НАСТРОЙКА ЦВЕТОВ --- */
+:root {
+    /* --- ТЕМНЫЙ РЕЖИМ (по умолчанию) --- */
+    --bg-color: #1a1a1a;
+    --text-main-color: antiquewhite;
+    --text-heading-color: #f0e68c;
+    --border-color: #8b7d6b;
+    --glass-bg: rgba(30, 25, 20, 0.3); /* Полупрозрачный, чтобы было красиво на темном */
+    --glass-shadow: inset 0 0 100px rgba(0,0,0,0.8);
+}
+/* Класс для ЯРКОГО (СВЕТЛОГО) режима */
+body.light-mode {
+    /* СВЕТЛАЯ ТЕМА */
+    --bg-color: #f4f0ec;
+    --text-main-color: #2c2c2c;
+    --text-heading-color: #4a3b2a;
+    --border-color: #a3917c;
+    /* Делаем фон текста непрозрачным, чтобы не просвечивал нижний темный слой */
+    --glass-bg: #f4f0ec;
+    --glass-shadow: inset 0 0 100px rgba(255, 255, 255, 0.5);
+}
+/* --- БЛОКИ С КАРТИНКАМИ (НЕ ТРОГАЕМ, ОНИ ВСЕГДА СВЕРХУ) --- */
+.main {
+    margin: 0 auto;
+    width: 100%;
+    min-height: 100%; /* Или height: 100%, если это вьюпорт */
+    background-color: transparent; /* Сделай прозрачным, чтобы просвечивал фон html */
+    transition: background-color 0.5s ease;
+}
+
+.now_Saint_Peterburg {
+    background-image: url(now_Saint_Peterburg.jpg);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 17%;
+    height: 100vh;
+    z-index: 2;
+    border: 5px solid var(--border-color);
+    box-sizing: border-box;
+    transition: border-color 0.5s ease;
+}
+
+.after_Saint_Peterburg {
+    background-image: url(after_Saint_Peterburg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 17%;
+    height: 100vh;
+    z-index: 2;
+    border: 5px solid var(--border-color);
+    box-sizing: border-box;
+    transition: border-color 0.5s ease;
+}
+
+/* --- ТЕКСТ --- */
+.text {
+    color: var(--text-main-color);
+    text-align: left;
+    margin-top: 120px;
+    margin-left: 17%;
+    margin-right: 17%;
+    background-color: var(--glass-bg); /* Используем переменную */
+    padding: 40px;
+    border-radius: 10px;
+    backdrop-filter: blur(3px);
+    box-shadow: var(--glass-shadow); /* Используем переменную */
+    transition: all 0.5s ease;
+}
+
+/* --- ЗАГОЛОВКИ И ПАРАГРАФЫ --- */
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-weight: normal;
+    color: var(--text-heading-color);
+    transition: color 0.5s ease;
+}
+
+h1 {
+    font-size: 3.5rem;
+    border-bottom: 1px solid rgba(240, 230, 140, 0.3);
+    padding-bottom: 15px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+h2 {
+    margin-top: 50px;
+    border-bottom: 1px solid rgba(240, 230, 140, 0.3);
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+p, h3{
+    font-size: 1.2rem; /* Было 1.2, стало 1.5 — значительное увеличение */
+    line-height: 1.8; /* Увеличиваем межстрочный интервал, чтобы текст "дышал" */
+    color: var(--text-main-color);
+    margin-bottom: 1.5rem; /* Добавим отступ между абзацами */
+}
+li {
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: var(--text-main-color);
+    margin-bottom: 0.5rem; /* Для подпунктов лучше сделать отступ поменьше */
+}
+
+ul li ul li {
+    font-size: 1.5rem;
+    margin-left: 20px; /* Отступ для вложенных списков */
+}
+
+.Poster_Saint_Peterburg {
+    background-image: url(Poster_Saint_Peterburg.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 400px;
+    width: 100%;
+    position: relative;
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.5); /* Чуть мягче тень */
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+}
+p:first-of-type {
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.6;
+}
+h1 {
+    font-size: 3.5rem;
+    letter-spacing: 2px; /* Разрядка для красоты */
+}
+h2::after {
+    content: "✦"; /* Символ звезды или креста */
+    display: block;
+    text-align: center;
+    color: #f0e68c;
+    font-size: 20px;
+    margin-top: 10px;
+
+}
+@media (max-width: 768px) {
+    .now_Saint_Peterburg, .after_Saint_Peterburg {
+        display: none; /* Или width: 10%; если хочешь оставить узкие полоски */
+    }
+
+    .top-bar {
+        left: 0;
+        right: 0;
+        height: 60px;
+    }
+
+    .main {
+        width: 100%;
+    }
+
+    .text {
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 80px;
+        padding: 20px;
+        backdrop-filter: none; /* На телефонах blur может тормозить */
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+}

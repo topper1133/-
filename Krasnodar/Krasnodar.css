@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 200%; /* Чтобы фон покрыл всю высоту */
+}
+.main {
+    margin: 0 auto;
+    width: 80%;
+    height: 100%;
+    background-position: center;
+    background-color: #1a1a1a;
+}
+h1, h2, h3, a {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+    color: #f0e68c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    position: relative;
+}
+p {
+    text-decoration: none;
+    color: wheat;
+}
+.now_Krasnodar {
+    background-image: url(now_Krasnodar.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 10%;
+    height: 100%;
+    min-height: 100vh;
+    z-index: -1;
+}
+.after_Krasnodar {
+    background-image: url(after_Krasnodar.jpg);
+    background-position: center;
+    position: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    width: 10%;
+    height: 100%;
+    min-height: 100vh;
+    z-index: -1;
+}
