@@ -1,0 +1,354 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    margin: 0 auto;
+    width: 80%;
+    height: 100vh;
+    position: relative;
+    background: radial-gradient(circle at 20% 30%, rgba(60, 50, 30, 0.4), transparent 70%), radial-gradient(circle at 80% 70%, rgba(212,175,55,0.08), transparent 60%), linear-gradient(135deg, #1e1a14, #0a0a0a);
+}
+
+    .main::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 80% 20%, rgba(212,175,55,0.05), transparent);
+        pointer-events: none;
+    }
+
+.menu-item h3 {
+    cursor: pointer;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(4px);
+    border-radius: 40px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: #f8f3e6;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+    .menu-item h3:hover {
+        background: rgba(212, 175, 55, 0.2);
+        border-color: #d4af37;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+h1, h2, h3, a {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.great-people {
+    color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding-top: 20px;
+    flex-wrap: wrap;
+}
+
+.site-header {
+    text-align: center;
+    padding: 50px 0 30px;
+}
+
+.name-site h1 {
+    margin: 0;
+    letter-spacing: 2px;
+    font-size: 4rem;
+    background: linear-gradient(135deg, #f9eec1, #d4af37, #b88a1a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 15px rgba(212,175,55,0.5);
+    animation: fadeInDown 1s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.text-main1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 120px;
+}
+
+    .text-main1 h2 {
+        margin: 0;
+    }
+
+    .text-main1 a {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 28px;
+        background: rgba(0,0,0,0.4);
+        backdrop-filter: blur(4px);
+        border-radius: 50px;
+        font-size: 1.4rem;
+        font-weight: 500;
+        text-decoration: none;
+        color: #f9eec1;
+        border: 1px solid rgba(212, 175, 55, 0.4);
+        transition: all 0.25s ease;
+        letter-spacing: 1px;
+    }
+
+        .text-main1 a:hover {
+            background: #d4af37;
+            color: #1a1a1a;
+            border-color: #d4af37;
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .text-main1 a:active {
+            transform: scale(0.9);
+        }
+
+        /* Для ссылок без картинок — добавим иконку 🏛️ (удали, если не надо) */
+        .text-main1 a:not(:has(img))::before {
+            content: "🏛️ ";
+            opacity: 0.7;
+        }
+
+.city-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.menu-item {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    z-index: 10;
+}
+
+.dropdown-content {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 120%;
+    left: 0;
+    background: rgba(26, 26, 26, 0.9);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    min-width: 220px;
+    padding: 12px 0;
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    transform: translateY(10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    z-index: 20;
+}
+
+    .dropdown-content a {
+        color: #f0e68c;
+        padding: 10px 24px;
+        text-decoration: none;
+        display: block;
+        font-family: 'Playfair Display', serif;
+        font-size: 1rem;
+        transition: 0.2s;
+    }
+
+        .dropdown-content a:hover {
+            background: linear-gradient(90deg, #d4af37, #f0e68c);
+            color: #1a1a1a;
+            padding-left: 32px;
+        }
+
+.menu-item:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Боковые картинки — с правильным порядком слоёв */
+.citi_after {
+    background-image: url(citi_after.jpg);
+    background-position: left;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    width: 17%;
+    height: 100vh;
+    z-index: -1;
+}
+
+    .citi_after::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(2px);
+        pointer-events: none;
+    }
+
+    .citi_after::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 30% 50%, rgba(212,175,55,0.15), transparent);
+        pointer-events: none;
+    }
+
+.siti_now {
+    background-image: url(siti_now.jpg);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 17%;
+    height: 100vh;
+    z-index: -1;
+}
+
+    .siti_now::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(2px);
+        pointer-events: none;
+    }
+
+    .siti_now::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 30% 50%, rgba(212,175,55,0.15), transparent);
+        pointer-events: none;
+    }
+
+/* Анимация появления элементов */
+.great-people > *,
+.text-main1 a {
+    animation: fadeSlideUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+    .great-people > *:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+
+    .great-people > *:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .great-people > *:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+
+    .text-main1 a:nth-child(1) {
+        animation-delay: 0.4s;
+    }
+
+    .text-main1 a:nth-child(2) {
+        animation-delay: 0.5s;
+    }
+
+    .text-main1 a:nth-child(3) {
+        animation-delay: 0.6s;
+    }
+
+    .text-main1 a:nth-child(4) {
+        animation-delay: 0.7s;
+    }
+
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Мобильная адаптация (исправлено дублирование) */
+@media (max-width: 768px) {
+    .great-people {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .menu-item h3 {
+        text-align: center;
+        width: 100%;
+    }
+
+    .dropdown-content {
+        position: static;
+        transform: none;
+        opacity: 0;
+        margin-top: 10px;
+        width: 100%;
+        border-radius: 28px;
+    }
+
+    .menu-item:hover .dropdown-content {
+        transform: none;
+    }
+
+    .text-main1 {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+        .text-main1 a {
+            width: 80%;
+            text-align: center;
+            justify-content: center;
+        }
+
+    .citi_after, .siti_now {
+        width: 12%; /* на мобильных картинки уже, чтобы не мешать */
+    }
+}
